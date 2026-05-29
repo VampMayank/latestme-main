@@ -47,29 +47,29 @@ export default function Experience() {
 
   return (
     <section id="experience" ref={sectionRef} style={{ maxWidth: 860, margin: "0 auto", padding: "0 40px 100px" }}>
-      <div className="fade-up" style={{ marginBottom: 56, opacity: 0 }}>
-        <p style={{ fontSize: 11, fontWeight: 600, textTransform: "uppercase", letterSpacing: "0.18em", color: "rgba(6, 182, 212, 0.5)", marginBottom: 10 }}>03 — Career</p>
+      <div className="fade-up" style={{ marginBottom: 56, opacity: 0, paddingTop: "40px" }}>
+        <p style={{ fontSize: 11, fontWeight: 700, textTransform: "uppercase", letterSpacing: "0.18em", color: "var(--accent)", marginBottom: 10 }}>03 — Career</p>
         <h2 style={{ fontSize: "clamp(28px,4vw,42px)", fontWeight: 900, letterSpacing: "-0.03em", color: "var(--text)" }}>Work Experience</h2>
       </div>
 
       <div style={{ position: "relative", paddingLeft: 24 }}>
-        <div style={{ position: "absolute", left: 0, top: 8, bottom: 8, width: 1, background: "rgba(6, 182, 212, 0.18)" }} />
+        <div style={{ position: "absolute", left: 0, top: 8, bottom: 8, width: 1, background: "rgba(34, 211, 238, 0.2)" }} />
         <div style={{ display: "flex", flexDirection: "column", gap: 52 }}>
           {experiences.map((exp) => (
             <div key={exp.company} className="fade-up" style={{ position: "relative", opacity: 0 }}>
-              <div style={{ position: "absolute", left: -28, top: 6, width: 9, height: 9, borderRadius: "50%", background: "#06B6D4", border: "2px solid var(--bg)", boxShadow: "0 0 0 3px rgba(6, 182, 212, 0.18)" }} />
+              <div style={{ position: "absolute", left: -28, top: 6, width: 9, height: 9, borderRadius: "50%", background: "var(--accent)", border: "2px solid var(--bg)", boxShadow: "0 0 0 3px rgba(34, 211, 238, 0.15)" }} />
               <div style={{ display: "grid", gridTemplateColumns: "180px 1fr", gap: 24 }}>
                 <div>
-                  <p style={{ fontSize: 13, fontWeight: 700, color: "var(--text)" }}>{exp.company}</p>
-                  <p style={{ fontSize: 11, color: "var(--text3)", marginTop: 4 }}>{exp.period}</p>
+                  <p style={{ fontSize: 14, fontWeight: 700, color: "var(--text)" }}>{exp.company}</p>
+                  <p style={{ fontSize: 12, color: "var(--text3)", marginTop: 4, fontWeight: 500 }}>{exp.period}</p>
                 </div>
                 <div>
-                  <p style={{ fontSize: 15, fontWeight: 700, color: "var(--text)", marginBottom: 6 }}>{exp.role}</p>
-                  <p style={{ fontSize: 11, color: "var(--accent)", opacity: 0.8, fontFamily: "monospace", marginBottom: 16 }}>{exp.stack}</p>
-                  <ul style={{ display: "flex", flexDirection: "column", gap: 10 }}>
+                  <p style={{ fontSize: 16, fontWeight: 700, color: "var(--text)", marginBottom: 6 }}>{exp.role}</p>
+                  <p style={{ fontSize: 12, color: "var(--accent)", opacity: 0.9, fontWeight: 600, fontFamily: "monospace", marginBottom: 16 }}>{exp.stack}</p>
+                  <ul style={{ display: "flex", flexDirection: "column", gap: 12 }}>
                     {exp.bullets.map((b, j) => (
-                      <li key={j} style={{ fontSize: 14, color: "var(--text2)", lineHeight: 1.65, display: "flex", gap: 10 }}>
-                        <span style={{ marginTop: 7, flexShrink: 0, width: 4, height: 4, borderRadius: "50%", background: "var(--accent)", opacity: 0.5 }} />
+                      <li key={j} style={{ fontSize: 15, color: "var(--text2)", lineHeight: 1.65, display: "flex", gap: 10 }}>
+                        <span style={{ marginTop: 9, flexShrink: 0, width: 4, height: 4, borderRadius: "50%", background: "var(--accent)", opacity: 0.6 }} />
                         {b}
                       </li>
                     ))}

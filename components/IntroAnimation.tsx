@@ -43,8 +43,8 @@ export default function IntroAnimation({ onComplete }: IntroAnimationProps) {
       const gridSize = 60;
       const opacity = 0.25;
       
-      ctx.strokeStyle = `rgba(6, 182, 212, ${opacity})`;
-      ctx.lineWidth = 1;
+      ctx.strokeStyle = `rgba(34, 211, 238, ${opacity})`;
+      ctx.lineWidth = 1.2;
 
       for (let x = 0; x <= w; x += gridSize) {
         ctx.beginPath();
@@ -61,12 +61,12 @@ export default function IntroAnimation({ onComplete }: IntroAnimationProps) {
       }
 
       const pulse = Math.sin(time * 0.002) * 0.5 + 0.5;
-      ctx.fillStyle = `rgba(6, 182, 212, ${pulse * 0.4})`;
+      ctx.fillStyle = `rgba(34, 211, 238, ${pulse * 0.5})`;
       for (let x = 0; x <= w; x += gridSize) {
         for (let y = 0; y <= h; y += gridSize) {
           if ((x / gridSize + y / gridSize) % 2 === 0) {
             ctx.beginPath();
-            ctx.arc(x, y, 1.5, 0, Math.PI * 2);
+            ctx.arc(x, y, 2, 0, Math.PI * 2);
             ctx.fill();
           }
         }
@@ -91,7 +91,7 @@ export default function IntroAnimation({ onComplete }: IntroAnimationProps) {
       onComplete: () => {
         gsap.to(containerRef.current, {
           opacity: 0,
-          duration: 0.8,
+          duration: 1.0,
           ease: "power2.inOut",
           onComplete: () => onComplete?.()
         });
@@ -101,30 +101,30 @@ export default function IntroAnimation({ onComplete }: IntroAnimationProps) {
     tl.to(contentRef.current, {
       opacity: 1,
       y: 0,
-      duration: 1.0,
-      ease: "power3.out",
+      duration: 1.2,
+      ease: "power4.out",
     });
 
     tl.to(imageContainerRef.current, {
       scale: 1,
-      duration: 1.2,
-      ease: "power2.out"
-    }, "-=0.8");
-
-    tl.to(canvasRef.current, {
-      opacity: 0.6,
-      duration: 1.2,
-      ease: "power2.out"
+      duration: 1.4,
+      ease: "back.out(1.7)"
     }, "-=1.0");
 
-    tl.to({}, { duration: 1.0 });
+    tl.to(canvasRef.current, {
+      opacity: 1,
+      duration: 1.5,
+      ease: "power2.out"
+    }, "-=1.2");
+
+    tl.to({}, { duration: 1.2 });
 
   }, { scope: containerRef, dependencies: [isImageLoaded] });
 
   return (
     <div
       ref={containerRef}
-      className="fixed inset-0 z-[9999] bg-black flex items-center justify-center overflow-hidden"
+      className="fixed inset-0 z-[9999] bg-[#08080a] flex items-center justify-center overflow-hidden"
     >
       <canvas
         ref={canvasRef}
@@ -134,15 +134,15 @@ export default function IntroAnimation({ onComplete }: IntroAnimationProps) {
 
       <div 
         ref={contentRef} 
-        className="relative flex flex-col items-center gap-10 z-10"
-        style={{ opacity: 0, transform: "translateY(20px)" }}
+        className="relative flex flex-col items-center gap-12 z-10"
+        style={{ opacity: 0, transform: "translateY(30px)" }}
       >
         <h1
           ref={textRef}
-          className="text-white font-black tracking-[0.2em] md:tracking-[0.5em] text-center"
+          className="text-white font-black tracking-[0.25em] md:tracking-[0.6em] text-center"
           style={{ 
-            fontSize: "clamp(1.5rem, 7vw, 4rem)",
-            textShadow: "0 0 30px rgba(6,182,212,0.4)",
+            fontSize: "clamp(2rem, 8vw, 5rem)",
+            textShadow: "0 0 40px rgba(34,211,238,0.5)",
           }}
         >
           {name}
@@ -150,14 +150,14 @@ export default function IntroAnimation({ onComplete }: IntroAnimationProps) {
 
         <div 
           ref={imageContainerRef}
-          className="relative w-36 h-36 md:w-56 md:h-56 rounded-full overflow-hidden border-2 border-white/30 shadow-2xl shadow-cyan-500/20"
-          style={{ transform: "scale(0.9)" }}
+          className="relative w-40 h-40 md:w-64 md:h-64 rounded-full overflow-hidden border-4 border-white/20 shadow-2xl shadow-cyan-500/30"
+          style={{ transform: "scale(0.8)" }}
         >
           <Image
             src="/intro-profile.jpg"
             alt="Mayank Verma"
             fill
-            sizes="(max-width: 768px) 144px, 224px"
+            sizes="(max-width: 768px) 160px, 256px"
             className="object-cover"
             priority
             onLoad={() => setIsImageLoaded(true)}

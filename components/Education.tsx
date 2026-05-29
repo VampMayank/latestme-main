@@ -47,7 +47,7 @@ export default function Education() {
   return (
     <section id="education" ref={sectionRef} style={{ maxWidth: 860, margin: "0 auto", padding: "0 40px 100px" }}>
       <div className="section-header" style={{ marginBottom: 56, opacity: 0, paddingTop: "40px" }}>
-        <p style={{ fontSize: 11, fontWeight: 600, textTransform: "uppercase", letterSpacing: "0.18em", color: "rgba(6, 182, 212, 0.5)", marginBottom: 10 }}>05 — Background</p>
+        <p style={{ fontSize: 11, fontWeight: 700, textTransform: "uppercase", letterSpacing: "0.18em", color: "var(--accent)", marginBottom: 10 }}>05 — Background</p>
         <h2 style={{ fontSize: "clamp(28px,4vw,42px)", fontWeight: 900, letterSpacing: "-0.03em", color: "var(--text)" }}>Education</h2>
       </div>
 
@@ -58,22 +58,22 @@ export default function Education() {
             background: "var(--card)",
             border: "1px solid var(--border)",
             borderRadius: 16,
-            padding: 24,
+            padding: 28,
             opacity: 0,
           }}
         >
-          <p style={{ fontSize: 11, fontWeight: 700, textTransform: "uppercase", letterSpacing: "0.18em", color: "rgba(6, 182, 212, 0.5)", marginBottom: 20 }}>University</p>
-          <p style={{ fontSize: 15, fontWeight: 700, color: "var(--text)" }}>{education.school}</p>
-          <p style={{ fontSize: 13, color: "var(--text2)", marginTop: 4 }}>{education.degree}</p>
-          <div style={{ display: "flex", alignItems: "center", gap: 16, marginTop: 12 }}>
-            <span style={{ fontSize: 11, color: "var(--text3)" }}>{education.period}</span>
-            <span style={{ fontSize: 11, fontWeight: 700, color: "var(--accent)" }}>GPA {education.gpa}</span>
+          <p style={{ fontSize: 11, fontWeight: 800, textTransform: "uppercase", letterSpacing: "0.2em", color: "var(--accent)", marginBottom: 20 }}>University</p>
+          <p style={{ fontSize: 16, fontWeight: 700, color: "var(--text)" }}>{education.school}</p>
+          <p style={{ fontSize: 14, color: "var(--text2)", marginTop: 6, fontWeight: 500 }}>{education.degree}</p>
+          <div style={{ display: "flex", alignItems: "center", gap: 20, marginTop: 14 }}>
+            <span style={{ fontSize: 12, color: "var(--text3)", fontWeight: 600 }}>{education.period}</span>
+            <span style={{ fontSize: 12, fontWeight: 800, color: "var(--accent)", background: "rgba(34, 211, 238, 0.1)", padding: "2px 8px", borderRadius: 4 }}>GPA {education.gpa}</span>
           </div>
-          <div style={{ display: "flex", flexWrap: "wrap", gap: 8, marginTop: 20 }}>
+          <div style={{ display: "flex", flexWrap: "wrap", gap: 8, marginTop: 24 }}>
             {education.coursework.map((c) => (
               <span
                 key={c}
-                style={{ padding: "2px 10px", fontSize: 11, borderRadius: 999, color: "var(--text3)", background: "rgba(6, 182, 212, 0.07)", border: "1px solid rgba(6, 182, 212, 0.15)" }}
+                style={{ padding: "4px 12px", fontSize: 12, fontWeight: 600, borderRadius: 999, color: "var(--text2)", background: "rgba(255,255,255,0.06)", border: "1px solid var(--border)" }}
               >
                 {c}
               </span>
@@ -82,7 +82,7 @@ export default function Education() {
         </div>
 
         <div>
-          <p style={{ fontSize: 11, fontWeight: 700, textTransform: "uppercase", letterSpacing: "0.18em", color: "rgba(6, 182, 212, 0.5)", marginBottom: 20 }}>Certificates</p>
+          <p style={{ fontSize: 11, fontWeight: 800, textTransform: "uppercase", letterSpacing: "0.2em", color: "var(--accent)", marginBottom: 20 }}>Certificates</p>
           <div style={{ display: "flex", flexDirection: "column", gap: 12 }}>
             {certificates.map((cert, i) => (
               <div
@@ -91,23 +91,23 @@ export default function Education() {
                 style={{
                   background: "var(--card)",
                   border: "1px solid var(--border)",
-                  borderRadius: 12,
-                  padding: "14px 16px",
+                  borderRadius: 14,
+                  padding: "16px 20px",
                   display: "flex",
                   alignItems: "flex-start",
                   justifyContent: "space-between",
-                  gap: 12,
+                  gap: 16,
                   opacity: 0,
-                  transition: "border-color 0.18s",
+                  transition: "all 0.2s ease",
                 }}
-                onMouseEnter={(e) => { (e.currentTarget as HTMLDivElement).style.borderColor = "var(--accent)"; }}
-                onMouseLeave={(e) => { (e.currentTarget as HTMLDivElement).style.borderColor = "var(--border)"; }}
+                onMouseEnter={(e) => { (e.currentTarget as HTMLDivElement).style.borderColor = "var(--accent)"; (e.currentTarget as HTMLDivElement).style.transform = "translateX(4px)"; }}
+                onMouseLeave={(e) => { (e.currentTarget as HTMLDivElement).style.borderColor = "var(--border)"; (e.currentTarget as HTMLDivElement).style.transform = "translateX(0)"; }}
               >
                 <div>
-                  <p style={{ fontSize: 13, fontWeight: 500, color: "var(--text)", lineHeight: 1.4 }}>{cert.name}</p>
-                  <p style={{ fontSize: 11, color: "var(--text3)", marginTop: 3 }}>{cert.issuer}</p>
+                  <p style={{ fontSize: 14, fontWeight: 700, color: "var(--text)", lineHeight: 1.4 }}>{cert.name}</p>
+                  <p style={{ fontSize: 12, color: "var(--text3)", marginTop: 4, fontWeight: 600 }}>{cert.issuer}</p>
                 </div>
-                <span style={{ fontSize: 11, fontWeight: 700, color: "var(--text3)", opacity: 0.7, flexShrink: 0 }}>{cert.year}</span>
+                <span style={{ fontSize: 11, fontWeight: 800, color: "var(--text3)", background: "rgba(255,255,255,0.05)", padding: "2px 6px", borderRadius: 4, flexShrink: 0 }}>{cert.year}</span>
               </div>
             ))}
           </div>

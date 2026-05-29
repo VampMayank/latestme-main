@@ -5,10 +5,10 @@ import gsap from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
 
 const skillGroups = [
-  { label: "Programming", color: "#06B6D4", skills: ["JavaScript (ES6+)", "TypeScript", "Python", "Java", "C++", "SQL", "HTML5", "CSS3"] },
-  { label: "Frontend", color: "#059669", skills: ["React.js", "Next.js (App Router)", "Tailwind CSS", "Bootstrap", "React Native", "Framer Motion", "GSAP"] },
-  { label: "Backend", color: "#DB2777", skills: ["Node.js", "Express.js", "NestJS", "Supabase Auth", "RESTful APIs", "WebSockets", "Firebase"] },
-  { label: "Databases & Tools", color: "#0891B2", skills: ["PostgreSQL", "MongoDB", "Supabase", "Neon DB", "Vercel", "Git", "Docker", "GSC API", "Technical SEO"] },
+  { label: "Programming", color: "#22D3EE", skills: ["JavaScript (ES6+)", "TypeScript", "Python", "Java", "C++", "SQL", "HTML5", "CSS3"] },
+  { label: "Frontend", color: "#34D399", skills: ["React.js", "Next.js (App Router)", "Tailwind CSS", "Bootstrap", "React Native", "Framer Motion", "GSAP"] },
+  { label: "Backend", color: "#F472B6", skills: ["Node.js", "Express.js", "NestJS", "Supabase Auth", "RESTful APIs", "WebSockets", "Firebase"] },
+  { label: "Databases & Tools", color: "#38BDF8", skills: ["PostgreSQL", "MongoDB", "Supabase", "Neon DB", "Vercel", "Git", "Docker", "GSC API", "Technical SEO"] },
 ];
 
 export default function Skills() {
@@ -47,28 +47,29 @@ export default function Skills() {
   }, []);
 
   return (
-    <section id="skills" ref={sectionRef} style={{ maxWidth: 860, margin: "0 auto", padding: "0 40px 100px" }}>
-      <div className="section-header" style={{ marginBottom: 56, opacity: 0 }}>
-        <p style={{ fontSize: 11, fontWeight: 600, textTransform: "uppercase", letterSpacing: "0.18em", color: "rgba(6, 182, 212, 0.5)", marginBottom: 10 }}>04 — Capabilities</p>
+    <section id="skills" ref={sectionRef} style={{ maxWidth: 860, margin: "0 auto", padding: "80px 40px 100px" }}>
+      <div className="section-header" style={{ marginBottom: 56, opacity: 0, paddingTop: "40px" }}>
+        <p style={{ fontSize: 11, fontWeight: 700, textTransform: "uppercase", letterSpacing: "0.18em", color: "var(--accent)", marginBottom: 10 }}>04 — Capabilities</p>
         <h2 style={{ fontSize: "clamp(28px,4vw,42px)", fontWeight: 900, letterSpacing: "-0.03em", color: "var(--text)" }}>Skills</h2>
       </div>
 
       <div style={{ display: "grid", gridTemplateColumns: "repeat(auto-fit, minmax(320px, 1fr))", gap: "40px 32px" }}>
         {skillGroups.map((group) => (
           <div key={group.label} className="skill-group">
-            <p style={{ fontSize: 11, fontWeight: 700, textTransform: "uppercase", letterSpacing: "0.18em", color: group.color, marginBottom: 16 }}>
+            <p style={{ fontSize: 11, fontWeight: 900, textTransform: "uppercase", letterSpacing: "0.2em", color: group.color, marginBottom: 16 }}>
               {group.label}
             </p>
-            <div style={{ display: "flex", flexWrap: "wrap", gap: 8 }}>
+            <div style={{ display: "flex", flexWrap: "wrap", gap: 10 }}>
               {group.skills.map((skill) => (
                 <span
                   key={skill}
                   className="skill-pill"
                   style={{
-                    padding: "6px 14px",
+                    padding: "8px 16px",
                     fontSize: 13,
+                    fontWeight: 700,
                     borderRadius: 999,
-                    color: "var(--text2)",
+                    color: "var(--text)",
                     background: "var(--card)",
                     border: "1px solid var(--border)",
                     opacity: 0,
@@ -76,14 +77,14 @@ export default function Skills() {
                   }}
                   onMouseEnter={(e) => {
                     const el = e.currentTarget as HTMLSpanElement;
-                    el.style.color = "var(--text)";
-                    el.style.borderColor = `${group.color}40`;
-                    el.style.background = `${group.color}0A`;
-                    el.style.transform = "translateY(-1px)";
+                    el.style.color = "var(--accent)";
+                    el.style.borderColor = `${group.color}80`;
+                    el.style.background = `${group.color}15`;
+                    el.style.transform = "translateY(-2px)";
                   }}
                   onMouseLeave={(e) => {
                     const el = e.currentTarget as HTMLSpanElement;
-                    el.style.color = "var(--text2)";
+                    el.style.color = "var(--text)";
                     el.style.borderColor = "var(--border)";
                     el.style.background = "var(--card)";
                     el.style.transform = "translateY(0)";
